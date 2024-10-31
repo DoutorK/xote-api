@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "8e7f72e4-88e6-4d1b-b823-ed71ea939751",
+		"name": "Xote-API",
+		"description": "StartFragment\n\n# XoteCariri API\n\nA XoteCariri API é uma API desenvolvida para gerenciar eventos na plataforma XoteCariri, que conecta os usuários a eventos na região de Juazeiro do Norte e Cariri. A API foi construída utilizando o padrão MVC (Model-View-Controller) para melhor organização e manutenibilidade do código.\n\n## Pré-requisitos\n\nAntes de começar, certifique-se de ter os seguintes softwares instalados:\n\n- [Node.js](https://nodejs.org/) (versão 14 ou superior)\n    \n- [MongoDB](https://www.mongodb.com/) (ou acesso a um cluster MongoDB no Atlas)\n    \n- [Postman](https://www.postman.com/) (opcional, para testar a API)\n    \n\n## Configuração do Ambiente\n\n1. git clone https://github.com/Caiorhcp/xote-api.git\n    \n2. Instale as Dependências\n    \n\n```\nnpm install \n\n ```\n\n1. Configuração do Banco de Dados Crie um banco de dados no MongoDB ou utilize um cluster no MongoDB Atlas. Em seguida, crie um arquivo .env na raiz do projeto e adicione a seguinte variável de ambiente, substituindo e pelas suas credenciais do MongoDB:\n    \n\nExemplo figurativo\n\n```\nmodule.exports = {\n    dbURI: &#x27;mongodb+srv://<USERNAME>:<PASSWORD>@xote.0mz6p.mongodb.net/xote?retryWrites=true&w=majority&#x27;\n};\n\n ```\n\n1. Inicie o Servidor\n    \n\nExecute o seguinte comando no terminal:\n\n```\nnode app.js\n\n ```\n\nO servidor deve iniciar e você verá a mensagem \"app running\" no terminal + \"Conectado ao banco de dados\" caso estiver usando o MongoDb.\n\n## Como Utilizar a API\n\nTestando com o Postman Após iniciar o servidor, você pode utilizar o Postman para interagir com a API.\n\nObter todos os eventos\n\n1. Método: GET URL: [http://localhost:3000/xote](http://localhost:3000/xote) Descrição: Retorna todos os eventos.\n    \n2. Criar um novo evento\n    \n\nMétodo: POST URL: [http://localhost:3000/xote](http://localhost:3000/xote) Body: Selecione raw e JSON e insira o seguinte:\n\n```\n{\n    \"title\": \"Festival de Música Cariri\",\n    \"description\": \"Um festival com apresentações de bandas regionais.\",\n    \"image_url\": \"https://example.com/festival.jpg\",\n    \"data\": \"2024-12-01\"\n}\n\n ```\n\nDescrição: Cria um novo evento e retorna o evento criado.\n\n1. Obter um evento por ID\n    \n\nMétodo: GET URL: [http://localhost:3000/xote/{id}](http://localhost:3000/xote/{id}) (substitua {id} pelo ID do evento) Descrição: Retorna os detalhes de um evento específico.\n\n1. Atualizar um evento por ID\n    \n\nMétodo: PUT URL: [http://localhost:3000/xote/{id}](http://localhost:3000/xote/{id}) (substitua {id} pelo ID do evento) Body: Selecione raw e JSON e insira o seguinte:\n\n```\n{\n    \"title\": \"Festival de Música Atualizado\",\n    \"description\": \"Descrição atualizada do festival.\",\n    \"image_url\": \"https://example.com/festival-atualizado.jpg\",\n    \"data\": \"2024-12-02\"\n}\n\n ```\n\nDescrição: Atualiza um evento específico e retorna o evento atualizado.\n\n1. Deletar um evento por ID\n    \n\nMétodo: DELETE URL: [http://localhost:3000/xote/{id}](http://localhost:3000/xote/{id}) (substitua {id} pelo ID do evento) Descrição: Deleta um evento específico.\n\n## Estrutura do Projeto\n\nO projeto segue o padrão MVC (Model-View-Controller), que ajuda a organizar e separar as responsabilidades do código. Isso facilita a manutenção, escalabilidade e entendimento do projeto.\n\n## Padrão MVC\n\nModel (Modelo): Representa a estrutura dos dados e as interações com o banco de dados. Na XoteCariri API, o modelo de eventos é definido utilizando o Mongoose. View (Visualização): Como estamos desenvolvendo uma API, o conceito de \"view\" é tratado como as respostas JSON enviadas aos clientes, que podem ser consumidas por qualquer front-end ou outra aplicação. Controller (Controlador): Responsável por lidar com as requisições, realizar as operações de negócio e devolver a resposta apropriada. Os controladores manipulam as requisições HTTP e interagem com os modelos. Estrutura de Diretórios\n\n```\n/project-root\n│\n├── /controllers      # Controladores para gerenciar a lógica das requisições\n│   └── eventController.js\n│\n├── /models           # Modelos do Mongoose para definir a estrutura dos dados\n│   └── eventModel.js\n│\n├── /routes           # Definição das rotas da API\n│   └── eventRoutes.js\n│\n├── /config           # Arquivos de configuração, como a conexão com o banco de dados\n│   └── database.js\n│\n├── app.js            # Arquivo principal da aplicação, onde as rotas e o servidor são configurados\n├── .env              # Variáveis de ambiente\n├── package.json      # Arquivo de configuração do Node.js\n\n ```\n\n## Benefícios do uso de MVC\n\nO padrão MVC é uma abordagem amplamente utilizada em sistemas maiores devido à separação de responsabilidades:\n\nOrganização: O código fica mais modular, fácil de entender e de manter. Reusabilidade: Facilita o reaproveitamento de componentes do código (controladores e modelos). Escalabilidade: Com a separação de lógica de controle, regras de negócios e dados, é mais fácil adicionar novas funcionalidades sem gerar dependências desnecessárias. Manutenção: Ao isolar o código em camadas, identificar e corrigir erros se torna mais simples.\n\n# Obrigado pela atenção\n\n## Developers:\n\n### Caio Gonçalves\n\n### Giovanny Lucas\n\n### Lucas Vieira\n\nEndFragment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38010609",
+		"_collection_link": "https://www.postman.com/caio44/db-xote/collection/4htoo13/api-documentation-reference?action=share&source=collection_link&creator=38010609"
+	},
+	"item": [
+		{
+			"name": "Collections",
+			"item": [
+				{
+					"name": "Xote-Criar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Festival de Música Cariri\",\n    \"description\": \"Um festival com apresentações de bandas regionais.\",\n    \"image_url\": \"https://example.com/festival.jpg\",\n    \"data\": \"2024-12-01\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/xote",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"xote"
+							],
+							"query": [
+								{
+									"key": "workspace",
+									"value": "{{workspaceId}}",
+									"description": "Optional. A workspace ID in which to create the collection.\n\nIf you do not include this query parameter, the system creates the collection in your \"My Workspace\" workspace.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Creates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include a `collection` object in the request body that contains the following required properties:\n\n*   `info` — An **object** that contains the following properties:\n    *   `name` — A **string** value that contains the collection's name.\n    *   `schema` — A **string** that contains a URL to the collection's schema. For example, the `https://schema.getpostman.com/collection/v1` URL.\n*   `item` — An **object** that contains the HTTP request and response information.\n    *   `request` — An **object** that contains the collection's request information. For a complete list of values, refer to the `definitions.request` entry in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). If you pass an empty object for this value, the system defaults to an untitled GET request.\n\n**Note:**\n\n*   For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):\n    *   `info` object — Use the `definitions.info` entry.\n    *   `item` object — Use the `definitions.items` entry.\n*   For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": []
+				},
+				{
+					"name": "Xote-Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/xote",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"xote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Xote-Listar-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/xote/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"xote",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Xote-Atualizar-id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Festival de Música Atualizado\",\r\n    \"description\": \"Descrição atualizada do festival.\",\r\n    \"image_url\": \"https://example.com/festival-atualizado.jpg\",\r\n    \"data\": \"2024-12-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/xote/{id} ",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"xote",
+								"{id} "
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Xote-Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/xote/{id} ",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"xote",
+								"{id} "
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The `/collections` endpoints let you manage your [collections](https://learning.postman.com/docs/sending-requests/intro-to-collections/)."
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://farming-simulator.pstmn.io"
+		}
+	]
+}

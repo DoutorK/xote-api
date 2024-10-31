@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  title: XoteCariri API
+  description: API para gerenciar eventos do XoteCariri
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/xote
+paths:
+  /xote:
+    get:
+      summary: Retorna todos os eventos
+      responses:
+        '200':
+          description: Lista de eventos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+    post:
+      summary: Cria um novo evento
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '201':
+          description: Evento criado
+  /xote/{id}:
+    get:
+      summary: Retorna um evento por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detalhes do evento
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '404':
+          description: Evento não encontrado
+    put:
+      summary: Atualiza um evento por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          description: Evento atualizado
+        '404':
+          description: Evento não encontrado
+    delete:
+      summary: Deleta um evento por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Evento deletado
+        '404':
+          description: Evento não encontrado
+components:
+  schemas:
+    Event:
+      type: object
+      properties:
+        title:
+          type: string
+          example: "Festival de Música Cariri"
+        description:
+          type: string
+          example: "Um festival com apresentações de bandas regionais."
+        image_url:
+          type: string
+          example: "https://example.com/festival.jpg"
+        data:
+          type: string
+          example: "2024-12-01"
